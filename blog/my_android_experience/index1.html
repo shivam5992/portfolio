@@ -68,11 +68,11 @@
             <h3>Oct 13, 2013</h3>
         <p>
 
-The <a href="http://developer.android.com/reference/android/speech/package-summary.html">Android official documentation</a> provides a brief description about the classes involved in voice reorganization API, but don’t explain anything more about them and examples are also not available. In this blog post, I’ll discuss how to implement voice reorganization in your android apps.
+The <a href="http://developer.android.com/reference/android/speech/package-summary.html">Android official documentation</a> provides a brief description about the classes involved in voice reorganization API, but don’t explain anything more about them. and examples are also not available. In this blog post, I’ll discuss how to implement voice reorganization in your android apps.
 
 Prior to implementing, you should follow the basic procedure to create android application projects in eclipse. If you are completely novice then you can start from <a href=”#”>here</a>.
 When the project is ready, (blank or some activities in it) you can start coding for the Voice API.
-Firstly, create two xml files in layout folder, namely main.xml and voice.xml. Main.xml will contain the code for first page(or activity), 
+Firstly, create two xml files in layout folder, namely main.xml and voice.xml. Main.xml will contain the code for first page(or activity), </p>
 
 <h5 align="left">here is the code for mail.xml file</h5>
 <pre class="brush: js;" >
@@ -87,6 +87,135 @@ Firstly, create two xml files in layout folder, namely main.xml and voice.xml. M
     android:text="VoiceRecognition Demo!" />
 &lt;/LinearLayout>
 </pre>
+<p>
+Then, the layout for voice results has to be designed in voice.xml file.</p>
+<h5 align="left">here is the code for voice.xml file</h5>
+<pre class="brush: js;" >
+&lt;?xml version="1.0" encoding="utf-8"?>
+&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    &lt;TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dip"
+        android:text="Click the button and start speaking" />
+ 
+    &lt;Button android:id="@+id/Speak"
+        android:layout_width="fill_parent"
+        android:onClick="SpeakClicked"
+        android:layout_height="wrap_content"
+        android:text="Click Me!" />
+ 
+    &lt;ListView android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" />
+ 
+ &lt;/LinearLayout>
+</pre>
+<p>
+Now we have to configure the activites in our applications. So a manifest.xml file has to be 
+created in the root folder. In this file we will map the actions to activities like oncutton click 
+Voice API functions will be called etc.
+</p>
+<pre class="brush: js;">
+    &lt;?xml version="1.0" encoding="utf-8"?>
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.jameselsey"
+      android:versionCode="1"
+      android:versionName="1.0">
+    &lt;application android:label="ImplementVoice" android:icon="@drawable/icon"
+            android:debuggable="true">
+        &lt;activity android:name=".ImplementVoice"
+                  android:label="@string/app_name">
+            &lt;intent-filter>
+                &lt;action android:name="android.intent.action.MAIN" />
+                &lt;category android:name="android.intent.category.LAUNCHER" />
+            &lt;/intent-filter>
+        &lt;/activity>
+    &lt;/application>
+&lt;/manifest> 
+    </pre>
+
+
+<p>Now comes the main part, In a class called ImplementVoice, a request code is declared which is nothing but a checksum that is used to confirm the response when the user calls out to the voice recognition engine,
+this variable can take any value.A ListView was also designed to hold hold any words or strings the recognition engine thought it heard.
+
+The onCreate method does the usual initialisation when the activity is first created. This method also queries the 
+<a href="http://developer.android.com/reference/android/content/pm/PackageManager.html"> packageManager </a> to check if there are any packages installed that can handle intents for ACTION_RECOGNIZE_SPEECH. The reason we do this is to check we have a package installed that can do the translation, and if not we will disable the button.
+
+The SpeakClicked function is mapped to the button, so this method is invoked when the button is clicked.
+
+The startVoiceRecognitionActivity invokes an activity that can handle the voice recognition.
+
+The onActivityResult is the callback from the above invocation, it first checks to see that the request code matches the one that was passed in, and ensures that the result is OK and not an error.
+
+Next, the results are pulled out of the intent and set into the ListView to be displayed on the screen.</p>
+
+
+<pre class="brush: js;">
+// add the package name and the imports required (Eclipse will do that for you) 
+public class ImplementVoice extends Activity
+{
+    private static final int REQUEST_CODE = 1234;
+    private ListView resultArray;
+    //first function, called at the start of application
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.voice);
+        Button Speak = (Button) findViewById(R.id.Speak);
+        resultArray = (ListView) findViewById(R.id.list);
+        // Disable button if no recognition service is present, example in emulators
+        PackageManager pm = getPackageManager();
+        List<ResolveInfo> activities = pm.queryIntentActivities(
+                new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH), 0);
+        if (activities.size() == 0)
+        {
+            Speak.setEnabled(false);
+            Speak.setText("Recognizer is not present in your device");
+        }
+    }
+    // on buttonclick
+    public void SpeakClicked(View v)
+    {
+        startVoiceRecognitionActivity();
+    }
+    private void startVoiceRecognitionActivity()
+    {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Voice recognition");
+        startActivityForResult(intent, REQUEST_CODE);
+    }
+
+    //Get the results and display on the scree in listview
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK)
+        {
+            // Populate the resultArray with the String values the recognition engine thought it heard
+            ArrayList<String> matches = data.getStringArrayListExtra(
+                    RecognizerIntent.EXTRA_RESULTS);
+            resultArray.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
+                    matches));
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+}
+</pre>
+
+
+
+
+
+
+
 
 
       </p><br>
