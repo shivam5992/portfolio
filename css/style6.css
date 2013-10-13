@@ -14,11 +14,7 @@ color: #fff;
 	font-size: 50px;
 	line-height: 80px;
 	display: block;
-	-webkit-mask: url(../img/mask.png) repeat;
-	-o-mask: url(../img/mask.png) repeat;
-	-moz-mask: url(../img/mask.png) repeat;
-	-ms-mask: url(../img/mask.png) repeat;
-	mask: url(../img/mask.png) repeat;
+	
 }
 .letter-container h2 a span {
 	color: #fff;
@@ -193,54 +189,7 @@ color: #fff;
 	-ms-animation-delay: 2.4s;
 	animation-delay: 2.4s;
 }
-.letter-container h2 a span:nth-child(26) {
-	-webkit-animation-delay: 2.5s;
-	-moz-animation-delay: 2.5s;
-	-ms-animation-delay: 2.5s;
-	animation-delay: 2.5s;
-}
-.letter-container h2 a span:nth-child(27) {
-	-webkit-animation-delay: 2.6s;
-	-moz-animation-delay: 2.6s;
-	-ms-animation-delay: 2.6s;
-	animation-delay: 2.6s;
-}
-.letter-container h2 a span:nth-child(28) {
-	-webkit-animation-delay: 2.7s;
-	-moz-animation-delay: 2.7s;
-	-ms-animation-delay: 2.7s;
-	animation-delay: 2.7s;
-}
-.letter-container h2 a span:nth-child(29) {
-	-webkit-animation-delay: 2.8s;
-	-moz-animation-delay: 2.8s;
-	-ms-animation-delay: 2.8s;
-	animation-delay: 2.8s;
-}
-.letter-container h2 a span:nth-child(30) {
-	-webkit-animation-delay: 2.9s;
-	-moz-animation-delay: 2.9s;
-	-ms-animation-delay: 2.9s;
-	animation-delay: 2.9s;
-}
-.letter-container h2 a span:nth-child(31) {
-	-webkit-animation-delay: 3s;
-	-moz-animation-delay: 3s;
-	-ms-animation-delay: 3s;
-	animation-delay: 3s;
-}
-.letter-container h2 a span:nth-child(32) {
-	-webkit-animation-delay: 3.1s;
-	-moz-animation-delay: 3.1s;
-	-ms-animation-delay: 3.1s;
-	animation-delay: 3.1s;
-}
-.letter-container h2 a span:nth-child(33) {
-	-webkit-animation-delay: 3.2s;
-	-moz-animation-delay: 3.2s;
-	-ms-animation-delay: 3.2s;
-	animation-delay: 3.2s;
-}
+
 @keyframes sharpen {
  0% {
    	opacity: 0;
