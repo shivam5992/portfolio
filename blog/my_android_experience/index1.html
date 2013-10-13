@@ -73,7 +73,7 @@ Prior to implementing voice, I am assuming that you have all the basics clear ab
 Once the blank project is created, follow these steps.
 First, Design the User Interface, create two xml files in layout folder, namely main.xml and voice.xml. Main.xml is the layout design for home activity and voice.xml is the layout design for the results page. </p>
 <h5 align="left">Code for main.xml file</h5>
-<pre class="brush: js;" >
+<pre class="brush: js;" align="left">
 &lt;?xml version="1.0" encoding="utf-8"?>
 &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -87,7 +87,7 @@ First, Design the User Interface, create two xml files in layout folder, namely 
 </pre>
 
 <h5 align="left">Code for voice.xml file </h5>
-<pre class="brush: js;" >
+<pre class="brush: js;" align="left">
 &lt;?xml version="1.0" encoding="utf-8"?>
 &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
@@ -116,7 +116,7 @@ First, Design the User Interface, create two xml files in layout folder, namely 
 <p>
 Next create a manifest file which will map the activities of the application to different actions. This is the configuration file for the activities. This file should be created in the root folder. </p>
 <h5 align="left">manifest.xml file </h5>
-<pre class="brush: js;">
+<pre class="brush: js;" align="left">
     &lt;?xml version="1.0" encoding="utf-8"?>
 &lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.shivam"
@@ -138,13 +138,13 @@ Next create a manifest file which will map the activities of the application to 
 <p> Now comes the main portion of the application, main.java file. Create a class called ImplementVoice and declare a variable named request_code in it. This variable is a checksum that is used to confirm the response when the user calls out to the voice recognition engine and it can take any value. 
 Create an onCreate method which does the usual initialization on the start of the activity. This method is important as it also searches the android 
 <a href="http://developer.android.com/reference/android/content/pm/PackageManager.html"> packageManager </a> to check if there are any packages installed that can handle intents for ACTION_RECOGNIZE_SPEECH. This is done because to check we have a package installed that can do the translation, and if not we will disable the button.
-
+<br><br>
 Create another function named SpeakClicked and map it to the button, so this method is invoked when the button is clicked. This method starts VoiceRecognitionActivity intent which further invokes an activity that can handle the voice recognition.
 The onActivityResult is the callback function from the above chain calls, it first checks to see that the request code matches the one that was passed in, and ensures that the result is not erroneous.
 Next, the results are pulled out of the intent and set into the ListView to be displayed on the screen.</p>
 
-
-<pre class="brush: js;">
+<h5 align="left">Code for main.java file </h5>
+<pre class="brush: js;" align="left">
 // add the package name and the imports required (Eclipse will do that for you) 
 public class ImplementVoice extends Activity
 {
@@ -200,9 +200,7 @@ public class ImplementVoice extends Activity
 </pre>
 
 
-
-
-This blogpost/tutorial is inspired from <a href="http://www.jameselsey.co.uk/blogs/techblog/android-how-to-implement-voice-recognition-a-nice-easy-tutorial/">Here</a>.
+Feel free to discuss and share.This blogpost/tutorial is inspired from <a href="http://www.jameselsey.co.uk/blogs/techblog/android-how-to-implement-voice-recognition-a-nice-easy-tutorial/">Here</a>.
 
 
 
