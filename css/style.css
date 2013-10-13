@@ -93,5 +93,15 @@ display:none;
 
 .blog
 {
-
+width:80%;
+margin-left: 10%;
+text-align: center;
+}
+.blog p
+{
+text-align: justify;
+text-justify: newspaper;
+font-size: 25px;
+font-family: "calibri";
+line-height: 28px;
 }
