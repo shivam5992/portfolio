@@ -1,0 +1,97 @@
+body
+{
+font-family: 'Raleway', sans-serif;
+font-weight: 400;
+background: #fff;
+}
+
+.span4 p
+{
+text-align: justify;
+text-justify: newspaper;
+letter-spacing: 3px;
+margin-left: -60px;
+line-height: 28px;
+font-size: 20px;
+
+
+
+text-shadow: 0 1px 0 #ccc,
+
+
+
+}
+
+#dia{
+margin-top: -115px;
+margin-left: -70px;
+}
+
+
+.hero-unit
+{
+	background: url(../img/black.png);
+
+	height: 80px;
+}
+
+
+
+.get {
+display:none;
+}
+
+
+.alink
+{
+	text-decoration: none;
+	color:#000;
+	text-shadow: 1px 1px 1px #ccc;
+    font-size: 3.5em;
+    padding:3px;
+}
+.alink:hover
+{
+	text-decoration: none;
+	color:#2A97B5;
+}
+
+.alink1
+{
+	text-decoration: none;
+	color:#000;
+	text-shadow: 1px 1px 1px #ccc;
+    font-size: 8em;
+    padding:5px;
+    letter-spacing: 5px;
+}
+.alink1:hover
+{
+	text-decoration: none;
+	color:#2A97B5;
+}
+.tag:hover
+{
+	color:#000;
+	cursor:default;
+}
+
+.test:hover
+{
+	color:#2A97B5;
+	cursor:default;
+}
+
+.footer
+{
+	margin-top: -25px;
+	margin-left: 50px;
+	color:#000;
+	letter-spacing: 2px;
+}
+
+
+.blog
+{
+
+}

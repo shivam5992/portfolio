@@ -1,0 +1,62 @@
+
+.chat .messages
+{
+	border:10px solid #C499A8;
+	width:120%;
+	height:300px;
+	padding:10px;
+	overflow-y:scroll;
+	background: #fff;
+	color:#0C423B;
+font-family: 'Lato', Calibri, Arial, sans-serif;	
+}
+.chat .messages a{
+	text-decoration: none;
+}
+.chat .entry
+{
+border:4px solid #C499A8;
+float:left;
+width:110%;
+height:30px;
+padding:5px;
+margin-top:2px;
+font-family: 'Lato', Calibri, Arial, sans-serif;
+
+}
+.chat .entry:focus
+{
+	border:1px solid #D47092;
+ -webkit-box-shadow:0 0 6px #D47092;
+ -moz-box-shadow:0 0 5px #D47092;
+ box-shadow:0 0 5px #D47092;
+}
+
+}
+
+.chat .message a{
+	color:black;
+}
+
+.chat .message p{
+	color:white;
+
+} 
+
+textarea {
+    resize: none;
+}
+
+#name{
+	color:"#16BFE0";
+	float:left;
+	clear:both;
+	
+}
+
+
+#name_message{
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	margin-left:30px;
+	float:left;
+}
