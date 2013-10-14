@@ -6,7 +6,7 @@ class Core
 
 	public function __construct()
 	{
-       $this->db = new mysqli('hellosky.db.10800107.hostedresource.com','hellosky','gsbplBansal3@','hellosky');
+       $this->db = new mysqli('','','','');
 		}
 
 	public function query($sql)
