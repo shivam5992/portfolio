@@ -21,6 +21,8 @@ include "dbconnection.php";
 		<meta name="keywords" content="Login, Username, Web" />
 		<meta name="author" content="Shivam Bansal" />
 		<link rel="stylesheet" href= "css/styles.css">
+		<link rel="stylesheet" href="../css/fork-ribbon.css" />
+
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
 	</head>
 
@@ -29,7 +31,11 @@ include "dbconnection.php";
 		<h1 align="center">Chit Chat<br>Real Time Multi User Chat Application 
         <a href="index.php?truncate=true" style="text-decoration:none">,</a></h1>
 	</header>
-
+ <div class="github-fork-ribbon-wrapper right">
+        <div class="github-fork-ribbon">
+            <a href="https://github.com/shivam5992/ChitChat">Fork me on GitHub</a>
+        </div>
+    </div>
 	<form action="index.php" class="cbp-mc-form" >
 		<div class="cbp-mc-column" align="center">
 			<?php
