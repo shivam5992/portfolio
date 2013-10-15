@@ -6,7 +6,7 @@
  * @copyright Copyright (c) 2013, Shivam Bansal
  * @version 1.0 
  */
-
+session_start();
 include "dbconnection.php";
 ?>
 
@@ -16,7 +16,7 @@ include "dbconnection.php";
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<title>  Ajax Chat </title>
+		<title> Chit Chat </title>
 		<meta name="description" content="Simple chat in Ajax and Php" />
 		<meta name="keywords" content="Login, Username, Web" />
 		<meta name="author" content="Shivam Bansal" />
@@ -26,44 +26,42 @@ include "dbconnection.php";
 
 <body>
 	<header>
-		<h1 align="center">Chat Application <br>Php, Ajax, Javascript<a href="index.php?truncate=true" style="text-decoration:none">,</a> Mysql</h1>
+		<h1 align="center">Chit Chat<br>Real Time Multi User Chat Application 
+        <a href="index.php?truncate=true" style="text-decoration:none">,</a></h1>
 	</header>
 
 	<form action="index.php" class="cbp-mc-form" >
 		<div class="cbp-mc-column" align="center">
 			<?php
+            
 			if(isset($_GET["UserName"]))
 			{
+                
 				$u = $_GET['UserName'];
 				$myquery="INSERT INTO `users` (`UserName`) values('$u')";
 				$result=mysql_query($myquery);
-				session_start();
 				$result = mysql_query("select UserId from `users` where `UserName` = '$u' ");
-				if($result === FALSE) {
+				if($result === FALSE)
+                {
     				die(mysql_error()); 
 				}
-				while($row = mysql_fetch_array($result)){
+				while($row = mysql_fetch_array($result))
+                {
 	   			$_SESSION['user'] = $row[0];
-    				}
+    			}
 				?>
 				<br>
 				<div class="chat">
 				<div class="messages" id="message_div">
 				</div>
 				<textarea class="entry" placeholder="Use Shift+Enter for new line and Enter for send"></textarea>
-				<div>a</div>
-				<div>b</div>
-				<div>c</div>
-
-
-
-
 				</div>
 				<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 				<script type="text/javascript" src="js/chat.js"></script>
 				<?php
 				}
-				else{
+				else
+                {
 				?>
 				<form action="index.php">
 				<br><br><br><br><br>
@@ -75,6 +73,8 @@ include "dbconnection.php";
 				?>
 				</form>
 			
+            <br><br><br>
+            <h2 align="center">Copyright ShivamBansal.com</h2>
 	</div>
 			
 			<?php
