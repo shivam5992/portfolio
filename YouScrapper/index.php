@@ -22,15 +22,15 @@ getID:function(el)
 </script>
 
 </head>
-<div id=contentvideo>
-<div style="float:left"><a href="index.html">Back To Portfolio</a>
-</div>
+
  
  <div class="github-fork-ribbon-wrapper right">
         <div class="github-fork-ribbon">
             <a href="https://github.com/shivam5992/YouScrapper">Fork me on GitHub</a>
         </div>
     </div>
+<div id=contentvideo>
+
 
 <div align=center>
 <font size=6 face="Lucida Sans Unicode">YouScrapper</font>
@@ -148,10 +148,15 @@ break;
 }
 }
 }
-
+$tru="truncate search";
+$result=mysql_query($tru);
+$tru="truncate crawl";
+$result=mysql_query($tru);
 }
-?>
-
-</div>
+?><br><br><br><br><br>
+<h4 align=center>BUG: Works well only for single word Query !!</h4>
+<hr>
+<h3 align=center> Copyright ShivamBansal.com </h3>
+</div><br><br>
 
 
