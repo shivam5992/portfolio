@@ -1,6 +1,8 @@
 <head>
-<link rel="stylesheet" type="text/css" href="css/stylescrapper.css" />
-<script src="js/modernizr.custom.63321.js"></script>
+   
+<link rel="stylesheet" href="../css/fork-ribbon.css" />
+<link rel="stylesheet" type="text/css" href="../css/stylescrapper.css" />
+
 <script type="text/javascript">
 var ray=
 {
@@ -23,8 +25,12 @@ getID:function(el)
 <div id=contentvideo>
 <div style="float:left"><a href="index.html">Back To Portfolio</a>
 </div>
-<div style="float:right"><a href="#">Github</a>
-</div>
+ 
+ <div class="github-fork-ribbon-wrapper right">
+        <div class="github-fork-ribbon">
+            <a href="https://github.com/shivam5992/YouScrapper">Fork me on GitHub</a>
+        </div>
+    </div>
 
 <div align=center>
 <font size=6 face="Lucida Sans Unicode">YouScrapper</font>
