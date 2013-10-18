@@ -7,10 +7,7 @@
     <link href="../../css/bootstrap-responsive.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
     <link href="../../css/style.css" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="../../css/shCoreFadeToGrey.css"/>
-    <script type="text/javascript" src="../../js/shCore.js"></script>
-    <script type="text/javascript" src="../../js/shBrushJScript.js"></script>
-    <script type="text/javascript">SyntaxHighlighter.all();</script>
+
 
 
     
@@ -73,7 +70,7 @@ Prior to implementing voice, I am assuming that you have all the basics clear ab
 Once the blank project is created, follow these steps.
 First, Design the User Interface, create two xml files in layout folder, namely main.xml and voice.xml. Main.xml is the layout design for home activity and voice.xml is the layout design for the results page. </p>
 <h5 align="left">Code for main.xml file</h5>
-<pre class="brush: js;" align="left">
+<pre align="left">
 &lt;?xml version="1.0" encoding="utf-8"?>
 &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -87,7 +84,7 @@ First, Design the User Interface, create two xml files in layout folder, namely 
 </pre>
 
 <h5 align="left">Code for voice.xml file </h5>
-<pre class="brush: js;" align="left">
+<pre align="left">
 &lt;?xml version="1.0" encoding="utf-8"?>
 &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
@@ -116,7 +113,7 @@ First, Design the User Interface, create two xml files in layout folder, namely 
 <p>
 Next create a manifest file which will map the activities of the application to different actions. This is the configuration file for the activities. This file should be created in the root folder. </p>
 <h5 align="left">manifest.xml file </h5>
-<pre class="brush: js;" align="left">
+<pre align="left">
     &lt;?xml version="1.0" encoding="utf-8"?>
 &lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.shivam"
@@ -144,7 +141,7 @@ The onActivityResult is the callback function from the above chain calls, it fir
 Next, the results are pulled out of the intent and set into the ListView to be displayed on the screen.</p>
 
 <h5 align="left">Code for main.java file </h5>
-<pre class="brush: js;" align="left">
+<pre align="left">
 // add the package name and the imports required (Eclipse will do that for you) 
 public class ImplementVoice extends Activity
 {
