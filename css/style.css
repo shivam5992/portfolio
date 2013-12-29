@@ -29,13 +29,10 @@ margin-left: -70px;
 	height: 80px;
 }
 
-
-
 .get 
 {
 display:none;
 }
-
 
 .alink
 {
@@ -133,4 +130,26 @@ text-shadow: 0 1px 0 #ccc,
 	background-color:#47a3da;
 	float:left;
 	
+}
+
+#content-2010, #content-2011, #content-2012, #content-2013, #content-2014
+{
+display: none
+}
+
+.span4 h4
+{
+	text-align: justify;
+	text-justify: newspaper;
+	line-height: 25px;
+}
+
+#bodyleft li 
+{
+height: 30px;
+}
+
+.span6
+{
+	margin-left: 110px;
 }
